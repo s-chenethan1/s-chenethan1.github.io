@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pixel Hub - Games</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="theme-dark">
+
+  <header class="site-header">
+    <div class="logo">🎮 Pixel Hub</div>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="games.html" class="active">Games</a>
+      <a href="how-to-play.html">How to Play</a>
+      <a href="about.html">About</a>
+      <a href="credits.html">Credits</a>
+
+      <button id="theme-toggle" class="btn-outline">
+        🌙 Dark / Light
+      </button>
+    </nav>
+  </header>
+
+
+  <main class="container">
+
+    <section class="page-header">
+      <h1>Games</h1>
+
+      <p>
+        Browse, search, and filter games.
+        Click a game to start playing.
+      </p>
+    </section>
+
+
+    <section class="games-controls">
+
+      <input
+        type="text"
+        id="game-search"
+        placeholder="Search games..."
+      >
+
+      <select id="game-filter">
+
+        <option value="all">
+          All categories
+        </option>
+
+        <option value="arcade">
+          Arcade
+        </option>
+
+        <option value="endless">
+          Endless runner
+        </option>
+
+        <option value="classic">
+          Classic
+        </option>
+
+      </select>
+
+    </section>
+
+
+    <section
+      class="card-grid"
+      id="games-list"
+    >
+
+      <article
+        class="card game-card"
+        data-category="arcade"
+        id="flappy"
+      >
+
+        <h3>
+          🐦 Flappy Bird-style
+        </h3>
+
+        <p>
+          Keep the bird in the air
+          and avoid pipes.
+        </p>
+
+        <p class="score">
+          High score:
+          <span
+            data-game="flappy"
+            class="high-score"
+          >
+            0
+          </span>
+        </p>
+
+        <button
+          class="btn-primary play-btn"
+          data-game="flappy"
+        >
+          Play
+        </button>
+
+      </article>
+
+
+      <article
+        class="card game-card"
+        data-category="classic"
+        id="snake"
+      >
+
+        <h3>
+          🐍 Snake
+        </h3>
+
+        <p>
+          Grow longer by eating food
+          and avoid hitting walls.
+        </p>
+
+        <p class="score">
+          High score:
+          <span
+            data-game="snake"
+            class="high-score"
+          >
+            0
+          </span>
+        </p>
+
+        <button
+          class="btn-primary play-btn"
+          data-game="snake"
+        >
+          Play
+        </button>
+
+      </article>
+
+
+      <article
+        class="card game-card"
+        data-category="endless"
+        id="dino"
+      >
+
+        <h3>
+          🦖 Dino Game
+        </h3>
+
+        <p>
+          Jump over obstacles
+          and survive as long as you can.
+        </p>
+
+        <p class="score">
+          High score:
+          <span
+            data-game="dino"
+            class="high-score"
+          >
+            0
+          </span>
+        </p>
+
+        <button
+          class="btn-primary play-btn"
+          data-game="dino"
+        >
+          Play
+        </button>
+
+      </article>
+
+
+      <article
+        class="card game-card"
+        data-category="arcade"
+        id="pong"
+      >
+
+        <h3>
+          🏓 Pong
+        </h3>
+
+        <p>
+          Move your paddle, return the ball,
+          and beat the computer.
+        </p>
+
+        <p class="score">
+          High score:
+          <span
+            data-game="pong"
+            class="high-score"
+          >
+            0
+          </span>
+        </p>
+
+        <button
+          class="btn-primary play-btn"
+          data-game="pong"
+        >
+          Play
+        </button>
+
+      </article>
+
+
+      <article
+        class="card game-card"
+        data-category="classic"
+        id="2048"
+      >
+
+        <h3>
+          🔢 2048
+        </h3>
+
+        <p>
+          Slide matching number tiles together
+          and try to create 2048.
+        </p>
+
+        <p class="score">
+          High score:
+          <span
+            data-game="2048"
+            class="high-score"
+          >
+            0
+          </span>
+        </p>
+
+        <button
+          class="btn-primary play-btn"
+          data-game="2048"
+        >
+          Play
+        </button>
+
+      </article>
+
+
+      <article
+        class="card game-card"
+        data-category="arcade"
+        id="breakout"
+      >
+
+        <h3>
+          🧱 Breakout
+        </h3>
+
+        <p>
+          Bounce the ball, break the bricks,
+          and clear each level.
+        </p>
+
+        <p class="score">
+          High score:
+          <span
+            data-game="breakout"
+            class="high-score"
+          >
+            0
+          </span>
+        </p>
+
+        <button
+          class="btn-primary play-btn"
+          data-game="breakout"
+        >
+          Play
+        </button>
+
+      </article>
+
+    </section>
+
+
+    <section class="game-play-area">
+
+      <h2>Game Window</h2>
+
+      <p>
+        Select a game above to start.
+        Each game now has its own JavaScript file.
+      </p>
+
+      <canvas
+        id="game-canvas"
+        width="600"
+        height="600"
+        tabindex="0"
+      ></canvas>
+
+      <div class="game-controls">
+
+        <button
+          id="restart-game"
+          class="btn-secondary"
+        >
+          Restart Game
+        </button>
+
+        <a
+          id="current-game-help"
+          class="btn-outline"
+          href="how-to-play.html"
+        >
+          📖 How to Play
+        </a>
+
+        <p id="current-score">
+          Current score: 0
+        </p>
+
+      </div>
+
+      <div class="game-instructions">
+
+        <h3>Game Log</h3>
+
+        <div
+          id="game-log"
+          aria-live="polite"
+          aria-label="Game status log"
+        >
+          <p class="game-log-entry">
+            Choose Flappy Bird-style, Snake, Dino,
+            Pong, 2048, or Breakout to begin.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer class="site-footer">
+    <p>© 2026 Pixel Hub</p>
+  </footer>
+
+
+  <script>
+    // ========================================
+    // Pixel Hub - Page + Game Controller
+    // ========================================
+
+    const themeToggle =
+      document.getElementById(
+        "theme-toggle"
+      );
+
+
+    function applySavedTheme() {
+      const savedTheme =
+        localStorage.getItem(
+          "pixelArcadeTheme"
+        );
+
+
+      if (
+        savedTheme === "light"
+      ) {
+        document.body.classList.remove(
+          "theme-dark"
+        );
+
+        document.body.classList.add(
+          "theme-light"
+        );
+
+      } else {
+
+        document.body.classList.remove(
+          "theme-light"
+        );
+
+        document.body.classList.add(
+          "theme-dark"
+        );
+      }
+    }
+
+
+    applySavedTheme();
+
+
+    if (themeToggle) {
+      themeToggle.addEventListener(
+        "click",
+        () => {
+
+          const isLight =
+            document.body.classList.contains(
+              "theme-light"
+            );
+
+
+          document.body.classList.toggle(
+            "theme-light",
+            !isLight
+          );
+
+
+          document.body.classList.toggle(
+            "theme-dark",
+            isLight
+          );
+
+
+          localStorage.setItem(
+            "pixelArcadeTheme",
+            isLight
+              ? "dark"
+              : "light"
+          );
+        }
+      );
+    }
+
+
+    // ------------------------------
+    // Shared Game Window
+    // ------------------------------
+
+    const canvas =
+      document.getElementById(
+        "game-canvas"
+      );
+
+    const ctx =
+      canvas.getContext(
+        "2d"
+      );
+
+
+    const restartButton =
+      document.getElementById(
+        "restart-game"
+      );
+
+    const currentScoreElement =
+      document.getElementById(
+        "current-score"
+      );
+
+    const currentGameHelp =
+      document.getElementById(
+        "current-game-help"
+      );
+
+    const gameHelpSections = {
+      flappy: "flappy",
+      snake: "snake",
+      dino: "dino",
+      pong: "pong",
+      "2048": "game-2048",
+      breakout: "breakout"
+    };
+
+    const gameHelpLabels = {
+      flappy: "Flappy Bird-style",
+      snake: "Snake",
+      dino: "Dino",
+      pong: "Pong",
+      "2048": "2048",
+      breakout: "Breakout"
+    };
+
+    const gameLog =
+      document.getElementById(
+        "game-log"
+      );
+
+
+    const registeredGames = {};
+
+    let currentGameName = null;
+
+
+    function updateScore(score) {
+      if (
+        currentScoreElement
+      ) {
+        currentScoreElement.textContent =
+          `Current score: ${score}`;
+      }
+    }
+
+
+    function setInstructions(text) {
+      if (
+        !gameLog ||
+        !text
+      ) {
+        return;
+      }
+
+
+      const entry =
+        document.createElement(
+          "p"
+        );
+
+
+      entry.className =
+        "game-log-entry";
+
+
+      entry.textContent =
+        text;
+
+
+      gameLog.appendChild(
+        entry
+      );
+
+
+      while (
+        gameLog.children.length > 8
+      ) {
+        gameLog.removeChild(
+          gameLog.firstElementChild
+        );
+      }
+
+
+      gameLog.scrollTop =
+        gameLog.scrollHeight;
+    }
+
+
+    function fillCanvas(color) {
+      ctx.fillStyle =
+        color;
+
+      ctx.fillRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
+    }
+
+
+    function showGameOver(
+      title,
+      score
+    ) {
+      ctx.fillStyle =
+        "rgba(0, 0, 0, 0.72)";
+
+      ctx.fillRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
+
+
+      ctx.fillStyle =
+        "#ffffff";
+
+      ctx.textAlign =
+        "center";
+
+
+      ctx.font =
+        "bold 42px system-ui";
+
+      ctx.fillText(
+        title,
+        canvas.width / 2,
+        canvas.height / 2 - 30
+      );
+
+
+      ctx.font =
+        "24px system-ui";
+
+      ctx.fillText(
+        `Score: ${score}`,
+        canvas.width / 2,
+        canvas.height / 2 + 15
+      );
+
+
+      ctx.font =
+        "18px system-ui";
+
+      ctx.fillText(
+        "Press Restart Game to play again",
+        canvas.width / 2,
+        canvas.height / 2 + 55
+      );
+
+
+      ctx.textAlign =
+        "start";
+    }
+
+
+    function registerGame(
+      name,
+      gameObject
+    ) {
+      if (
+        !name ||
+        !gameObject ||
+        typeof gameObject.start !==
+          "function" ||
+        typeof gameObject.stop !==
+          "function"
+      ) {
+        console.error(
+          "Invalid game registration:",
+          name
+        );
+
+        return;
+      }
+
+
+      registeredGames[name] =
+        gameObject;
+    }
+
+
+    function getCurrentGame() {
+      return currentGameName;
+    }
+
+
+    function updateCurrentGameHelp(name) {
+      if (!currentGameHelp) {
+        return;
+      }
+
+
+      const section =
+        gameHelpSections[name];
+
+      const label =
+        gameHelpLabels[name];
+
+
+      if (!section || !label) {
+        currentGameHelp.href =
+          "how-to-play.html";
+
+        currentGameHelp.textContent =
+          "📖 How to Play";
+
+        return;
+      }
+
+
+      currentGameHelp.href =
+        `how-to-play.html#${section}`;
+
+      currentGameHelp.textContent =
+        `📖 How to Play ${label}`;
+    }
+
+
+    function stopCurrentGame() {
+      if (
+        currentGameName &&
+        registeredGames[
+          currentGameName
+        ]
+      ) {
+        registeredGames[
+          currentGameName
+        ].stop();
+      }
+    }
+
+
+    function scrollToGame() {
+      const gameArea =
+        document.querySelector(
+          ".game-play-area"
+        );
+
+
+      if (gameArea) {
+        gameArea.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+
+
+      canvas.focus({
+        preventScroll: true
+      });
+    }
+
+
+    function wait(milliseconds) {
+      return new Promise(
+        (resolve) => {
+          setTimeout(
+            resolve,
+            milliseconds
+          );
+        }
+      );
+    }
+
+
+    async function showCountdown() {
+      const countdownSteps = [
+        {
+          text: "3",
+          duration: 700
+        },
+
+        {
+          text: "2",
+          duration: 700
+        },
+
+        {
+          text: "1",
+          duration: 700
+        },
+
+        {
+          text: "GO!",
+          duration: 500
+        }
+      ];
+
+
+      for (
+        const step of
+        countdownSteps
+      ) {
+        fillCanvas(
+          "#080812"
+        );
+
+
+        ctx.fillStyle =
+          "#ffffff";
+
+
+        ctx.textAlign =
+          "center";
+
+
+        ctx.textBaseline =
+          "middle";
+
+
+        ctx.font =
+          step.text === "GO!"
+            ? "bold 110px system-ui"
+            : "bold 160px system-ui";
+
+
+        ctx.fillText(
+          step.text,
+          canvas.width / 2,
+          canvas.height / 2
+        );
+
+
+        await wait(
+          step.duration
+        );
+      }
+
+
+      ctx.textBaseline =
+        "alphabetic";
+
+
+      ctx.textAlign =
+        "start";
+    }
+
+
+    async function startGame(name) {
+      if (
+        window.pixelArcadeGameFilesReady
+      ) {
+        await window
+          .pixelArcadeGameFilesReady;
+      }
+
+
+      const game =
+        registeredGames[name];
+
+
+      if (!game) {
+        console.error(
+          `Game "${name}" has not been registered.`,
+          Object.keys(
+            registeredGames
+          )
+        );
+
+
+        setInstructions(
+          `Could not start ${name}. Its JavaScript file did not load. Check the browser console for the paths that were tried.`
+        );
+
+
+        return;
+      }
+
+
+      stopCurrentGame();
+
+
+      currentGameName =
+        name;
+
+
+      updateCurrentGameHelp(
+        name
+      );
+
+
+      scrollToGame();
+
+
+      setInstructions(
+        `Get ready for ${name}!`
+      );
+
+
+      await showCountdown();
+
+
+      game.start();
+    }
+
+
+    function restartCurrentGame() {
+      if (!currentGameName) {
+        setInstructions(
+          "Choose a game first."
+        );
+
+        return;
+      }
+
+
+      const game =
+        registeredGames[
+          currentGameName
+        ];
+
+
+      if (!game) {
+        setInstructions(
+          "The selected game could not be found."
+        );
+
+        return;
+      }
+
+
+      game.stop();
+      game.start();
+
+      scrollToGame();
+    }
+
+
+    // ------------------------------
+    // Search + Category Filter
+    // ------------------------------
+
+    const gameSearch =
+      document.getElementById(
+        "game-search"
+      );
+
+    const gameFilter =
+      document.getElementById(
+        "game-filter"
+      );
+
+    const gameCards =
+      document.querySelectorAll(
+        ".game-card"
+      );
+
+
+    function filterGames() {
+      const searchText =
+        gameSearch
+          ? gameSearch.value
+              .toLowerCase()
+              .trim()
+          : "";
+
+
+      const category =
+        gameFilter
+          ? gameFilter.value
+          : "all";
+
+
+      gameCards.forEach(
+        (card) => {
+          const matchesSearch =
+            card.textContent
+              .toLowerCase()
+              .includes(
+                searchText
+              );
+
+
+          const matchesCategory =
+            category === "all" ||
+            card.dataset.category ===
+              category;
+
+
+          card.style.display =
+            matchesSearch &&
+            matchesCategory
+              ? ""
+              : "none";
+        }
+      );
+    }
+
+
+    if (gameSearch) {
+      gameSearch.addEventListener(
+        "input",
+        filterGames
+      );
+    }
+
+
+    if (gameFilter) {
+      gameFilter.addEventListener(
+        "change",
+        filterGames
+      );
+    }
+
+
+    // ------------------------------
+    // Public Game API
+    // ------------------------------
+
+    window.PixelArcade = {
+      canvas,
+      ctx,
+      updateScore,
+      setInstructions,
+      fillCanvas,
+      showGameOver,
+      registerGame,
+      getCurrentGame
+    };
+
+
+    // ------------------------------
+    // Initial Canvas
+    // ------------------------------
+
+    fillCanvas(
+      "#080812"
+    );
+
+
+    ctx.fillStyle =
+      "#ffffff";
+
+    ctx.textAlign =
+      "center";
+
+
+    ctx.font =
+      "bold 38px system-ui";
+
+    ctx.fillText(
+      "Pixel Hub",
+      canvas.width / 2,
+      canvas.height / 2 - 45
+    );
+
+
+    ctx.font =
+      "21px system-ui";
+
+    ctx.fillText(
+      "Choose a game mode",
+      canvas.width / 2,
+      canvas.height / 2 + 2
+    );
+
+
+    ctx.font =
+      "17px system-ui";
+
+    ctx.fillText(
+      "Flappy • Snake • Dino • Pong • 2048 • Breakout",
+      canvas.width / 2,
+      canvas.height / 2 + 42
+    );
+
+
+    ctx.textAlign =
+      "start";
+  </script>
+
+
+  <script>
+    // ========================================
+    // GAME FILE LOADER
+    // ========================================
+
+    function loadGameScript(
+      gameName,
+      paths,
+      expectedRegistrationName = null
+    ) {
+      return new Promise(
+        (resolve) => {
+          let index = 0;
+
+
+          function tryNextPath() {
+            if (
+              index >=
+              paths.length
+            ) {
+              console.error(
+                `${gameName} could not be loaded. Tried:`,
+                paths
+              );
+
+
+              resolve(
+                false
+              );
+
+              return;
+            }
+
+
+            const path =
+              paths[index++];
+
+
+            const script =
+              document.createElement(
+                "script"
+              );
+
+
+            script.src =
+              path;
+
+
+            script.onload =
+              () => {
+                if (
+                  expectedRegistrationName &&
+                  !registeredGames[
+                    expectedRegistrationName
+                  ]
+                ) {
+                  console.warn(
+                    `${gameName} loaded from ${path}, but did not register as "${expectedRegistrationName}". Trying the next path.`
+                  );
+
+
+                  script.remove();
+
+                  tryNextPath();
+
+                  return;
+                }
+
+
+                console.log(
+                  `${gameName} loaded from ${path}`
+                );
+
+
+                resolve(
+                  true
+                );
+              };
+
+
+            script.onerror =
+              () => {
+                script.remove();
+
+                tryNextPath();
+              };
+
+
+            document.body
+              .appendChild(
+                script
+              );
+          }
+
+
+          tryNextPath();
+        }
+      );
+    }
+
+
+    async function loadPixelArcadeGames() {
+
+      await loadGameScript(
+        "Snake",
+
+        [
+          "Snake.js",
+          "Snake(1).js",
+          "snake.js",
+
+          "games/Snake.js",
+          "games/Snake(1).js",
+          "games/snake.js",
+
+          "game/Snake.js",
+          "game/Snake(1).js",
+
+          "js/Snake.js",
+          "js/Snake(1).js",
+
+          "Game Files/Snake.js",
+          "Game Files/Snake(1).js",
+
+          "game-files/Snake.js",
+          "game-files/Snake(1).js"
+        ]
+      );
+
+
+      await loadGameScript(
+        "Dino",
+
+        [
+          "T-rex.js",
+          "T-Rex.js",
+          "T-Rex-game.js",
+          "T-rex(1).js",
+
+          "games/T-rex.js",
+          "games/T-Rex.js",
+          "games/T-Rex-game.js",
+          "games/T-rex(1).js",
+
+          "game/T-rex.js",
+          "game/T-Rex.js",
+
+          "js/T-rex.js",
+          "js/T-Rex.js",
+
+          "Game Files/T-rex.js",
+          "Game Files/T-Rex.js",
+
+          "game-files/T-rex.js",
+          "game-files/T-Rex.js"
+        ]
+      );
+
+
+      await loadGameScript(
+        "Flappy Bird",
+
+        [
+          "FlappyBird.js",
+          "FlappyBird(1).js",
+          "flappybird.js",
+
+          "games/FlappyBird.js",
+          "games/FlappyBird(1).js",
+          "games/flappybird.js",
+
+          "game/FlappyBird.js",
+          "game/FlappyBird(1).js",
+
+          "js/FlappyBird.js",
+          "js/FlappyBird(1).js",
+
+          "Game Files/FlappyBird.js",
+          "Game Files/FlappyBird(1).js",
+
+          "game-files/FlappyBird.js",
+          "game-files/FlappyBird(1).js"
+        ]
+      );
+
+
+      await loadGameScript(
+        "Pong",
+
+        [
+          "Pong.js",
+          "Pong(1).js",
+          "pong.js",
+
+          "games/Pong.js",
+          "games/Pong(1).js",
+          "games/pong.js",
+
+          "game/Pong.js",
+          "game/Pong(1).js",
+
+          "js/Pong.js",
+          "js/Pong(1).js",
+
+          "Game Files/Pong.js",
+          "Game Files/Pong(1).js",
+
+          "game-files/Pong.js",
+          "game-files/Pong(1).js"
+        ]
+      );
+
+
+      await loadGameScript(
+        "2048",
+
+        [
+          "2048.js",
+          "2048(1).js",
+
+          "games/2048.js",
+          "games/2048(1).js",
+
+          "game/2048.js",
+          "game/2048(1).js",
+
+          "js/2048.js",
+          "js/2048(1).js",
+
+          "Game Files/2048.js",
+          "Game Files/2048(1).js",
+
+          "game-files/2048.js",
+          "game-files/2048(1).js"
+        ]
+      );
+
+
+      await loadGameScript(
+        "Breakout",
+
+        [
+          "Breakout.js",
+          "Breakout(1).js",
+          "breakout.js",
+
+          "games/Breakout.js",
+          "games/Breakout(1).js",
+          "games/breakout.js",
+
+          "game/Breakout.js",
+          "game/Breakout(1).js",
+
+          "js/Breakout.js",
+          "js/Breakout(1).js",
+
+          "Game Files/Breakout.js",
+          "Game Files/Breakout(1).js",
+
+          "game-files/Breakout.js",
+          "game-files/Breakout(1).js"
+        ],
+
+        "breakout"
+      );
+
+
+      console.log(
+        "Registered games:",
+        Object.keys(
+          registeredGames
+        )
+      );
+    }
+
+
+    window.pixelArcadeGameFilesReady =
+      loadPixelArcadeGames();
+  </script>
+
+
+  <script>
+    document
+      .querySelectorAll(
+        ".play-btn"
+      )
+      .forEach(
+        (button) => {
+          button.addEventListener(
+            "click",
+            () => {
+              startGame(
+                button.dataset.game
+              );
+            }
+          );
+        }
+      );
+
+
+    if (restartButton) {
+      restartButton.addEventListener(
+        "click",
+        restartCurrentGame
+      );
+    }
+  </script>
+
+</body>
+</html>

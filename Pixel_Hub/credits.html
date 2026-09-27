@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pixel Hub - Credits</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .credits-page {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    .credits-hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 2rem;
+      align-items: center;
+      padding: 3.5rem 0 4rem;
+    }
+
+    .credits-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      color: var(--neon-blue);
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .credits-kicker::before {
+      content: "";
+      width: 20px;
+      height: 3px;
+      background: currentColor;
+      box-shadow: 7px 0 currentColor;
+    }
+
+    .credit-copy h1 {
+      margin: 0;
+      font-size: clamp(2.8rem, 7vw, 5.6rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .credit-copy p {
+      max-width: 680px;
+      margin-top: 1.25rem;
+      line-height: 1.8;
+      opacity: 0.82;
+    }
+
+    .credits-art-wrap,
+    .credit-card-art {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .credits-svg {
+      width: min(100%, 430px);
+      height: auto;
+      image-rendering: pixelated;
+      filter:
+        drop-shadow(
+          0 18px 28px
+          rgba(0, 0, 0, 0.3)
+        );
+    }
+
+    .credit-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .credit-card {
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 2rem;
+      align-items: center;
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 22px;
+      background: rgba(17, 17, 24, 0.58);
+    }
+
+    .credit-card.reverse .credit-copy {
+      order: 2;
+    }
+
+    .credit-card.reverse .credit-card-art {
+      order: 1;
+    }
+
+    .credit-card h2 {
+      margin-bottom: 0.8rem;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      letter-spacing: -0.03em;
+    }
+
+    .credit-card p,
+    .credit-card li {
+      line-height: 1.8;
+      opacity: 0.82;
+    }
+
+    .credit-card ul {
+      padding-left: 1.3rem;
+    }
+
+    .credit-card li {
+      margin-bottom: 0.8rem;
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(190px, 1fr)
+        );
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+
+    .resource-card {
+      padding: 1rem;
+      border: 1px solid rgba(58, 242, 255, 0.18);
+      border-radius: 16px;
+      background: rgba(8, 8, 18, 0.55);
+    }
+
+    .resource-card strong {
+      display: block;
+      margin-bottom: 0.45rem;
+      color: var(--neon-blue);
+    }
+
+    .credits-final {
+      margin: 1rem 0 4rem;
+      padding: clamp(2rem, 6vw, 4rem);
+      border: 1px solid rgba(58, 242, 255, 0.22);
+      border-radius: 22px;
+      text-align: center;
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(58, 242, 255, 0.08),
+          transparent 60%
+        ),
+        rgba(17, 17, 24, 0.55);
+    }
+
+    .credits-final h2 {
+      margin-bottom: 0.8rem;
+      font-size: clamp(2rem, 5vw, 3rem);
+    }
+
+    .credits-final p {
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.8;
+      opacity: 0.8;
+    }
+
+    .credit-float {
+      animation:
+        credit-float
+        4.4s
+        ease-in-out
+        infinite;
+      transform-origin: center;
+    }
+
+    .credit-bob {
+      animation:
+        credit-bob
+        3.6s
+        ease-in-out
+        infinite;
+      transform-origin: center;
+    }
+
+    .credit-pulse {
+      animation:
+        credit-pulse
+        2.7s
+        ease-in-out
+        infinite;
+      transform-origin: center;
+    }
+
+    @keyframes credit-float {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    @keyframes credit-bob {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(7px);
+      }
+    }
+
+    @keyframes credit-pulse {
+      0%,
+      100% {
+        opacity: 0.7;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+    }
+
+    body.theme-light .credit-card,
+    body.theme-light .credits-final {
+      background: rgba(255, 255, 255, 0.78);
+      border-color: rgba(17, 17, 24, 0.1);
+    }
+
+    body.theme-light .resource-card {
+      background: rgba(255, 255, 255, 0.84);
+      border-color: rgba(17, 17, 24, 0.09);
+    }
+
+    @media (max-width: 820px) {
+      .credits-hero,
+      .credit-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .credit-card {
+        grid-template-columns: 1fr;
+      }
+
+      .credit-card.reverse .credit-copy,
+      .credit-card.reverse .credit-card-art {
+        order: initial;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .credit-float,
+      .credit-bob,
+      .credit-pulse {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+
+
+<body class="theme-dark">
+
+  <header class="site-header">
+
+    <div class="logo">
+      🎮 Pixel Hub
+    </div>
+
+    <nav class="nav">
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="games.html">
+        Games
+      </a>
+
+      <a href="how-to-play.html">
+        How to Play
+      </a>
+
+      <a href="about.html">
+        About
+      </a>
+
+      <a
+        href="credits.html"
+        class="active"
+      >
+        Credits
+      </a>
+
+      <button
+        id="theme-toggle"
+        class="btn-outline"
+        type="button"
+      >
+        🌙 Dark / Light
+      </button>
+
+    </nav>
+
+  </header>
+
+
+  <main class="credits-page">
+
+    <section class="credits-hero">
+
+      <div class="credit-copy">
+
+        <div class="credits-kicker">
+          Thanks Behind the Project
+        </div>
+
+        <h1>
+          Credits, inspirations, and the resources behind Pixel Hub.
+        </h1>
+
+        <p>
+          Pixel Hub is a coding project built from many ideas, experiments, references, and rounds of testing. This page gives credit to the games and resources that helped inspire the project while also explaining how those ideas were used for learning.
+        </p>
+
+        <p>
+          The games on Pixel Hub are original browser implementations created for this project, but several of them are based on familiar game concepts. Their original ideas helped provide useful examples for learning movement, collision detection, scoring, timing, difficulty, and other programming concepts.
+        </p>
+
+      </div>
+
+
+      <div
+        class="credits-art-wrap credit-float"
+        aria-label="Pixel art thank-you scene"
+      >
+
+        <svg
+          class="credits-svg"
+          viewBox="0 0 430 340"
+          role="img"
+          aria-labelledby="credits-hero-art-title"
+        >
+
+          <title id="credits-hero-art-title">
+            Pixel art heart, gift, stars, and thank-you ticket
+          </title>
+
+          <rect
+            x="27"
+            y="28"
+            width="376"
+            height="282"
+            rx="38"
+            fill="#3af2ff"
+            opacity="0.055"
+          />
+
+          <g
+            fill="#ffd75e"
+            class="credit-pulse"
+          >
+            <rect x="55" y="62" width="8" height="28"/>
+            <rect x="45" y="72" width="28" height="8"/>
+            <rect x="360" y="74" width="7" height="23"/>
+            <rect x="352" y="82" width="23" height="7"/>
+          </g>
+
+          <g transform="translate(140 54)">
+
+            <rect x="0" y="18" width="24" height="24" fill="#ff667d"/>
+            <rect x="24" y="0" width="24" height="24" fill="#ff667d"/>
+            <rect x="48" y="18" width="24" height="24" fill="#ff667d"/>
+            <rect x="72" y="0" width="24" height="24" fill="#ff667d"/>
+            <rect x="96" y="18" width="24" height="24" fill="#ff667d"/>
+            <rect x="12" y="42" width="96" height="24" fill="#ff667d"/>
+            <rect x="24" y="66" width="72" height="24" fill="#ff667d"/>
+            <rect x="36" y="90" width="48" height="24" fill="#ff667d"/>
+            <rect x="48" y="114" width="24" height="24" fill="#ff667d"/>
+
+          </g>
+
+
+          <g
+            transform="translate(62 192)"
+            class="credit-bob"
+          >
+
+            <rect x="0" y="18" width="62" height="50" fill="#c45bff"/>
+            <rect x="26" y="18" width="10" height="50" fill="#ffd75e"/>
+            <rect x="-5" y="11" width="72" height="13" fill="#69f7ff"/>
+            <rect x="12" y="0" width="15" height="18" fill="#ffd75e"/>
+            <rect x="36" y="0" width="15" height="18" fill="#ffd75e"/>
+
+          </g>
+
+
+          <g
+            transform="translate(303 188)"
+            class="credit-float"
+          >
+
+            <rect x="0" y="0" width="58" height="88" fill="#4dff88"/>
+            <rect x="8" y="9" width="42" height="70" fill="#111118"/>
+
+            <text
+              x="29"
+              y="39"
+              fill="#69f7ff"
+              font-size="12"
+              font-family="system-ui"
+              font-weight="900"
+              text-anchor="middle"
+            >
+              THANKS
+            </text>
+
+            <text
+              x="29"
+              y="59"
+              fill="#ffffff"
+              font-size="10"
+              font-family="system-ui"
+              font-weight="800"
+              text-anchor="middle"
+            >
+              +100
+            </text>
+
+          </g>
+
+
+          <rect
+            x="104"
+            y="257"
+            width="220"
+            height="44"
+            fill="#111118"
+            stroke="#c45bff"
+            stroke-width="5"
+          />
+
+          <text
+            x="214"
+            y="286"
+            fill="#ffffff"
+            font-size="18"
+            font-family="system-ui"
+            font-weight="900"
+            text-anchor="middle"
+            letter-spacing="3"
+          >
+            THANK YOU
+          </text>
+
+        </svg>
+
+      </div>
+
+    </section>
+
+
+    <div class="credit-grid">
+
+      <section class="credit-card">
+
+        <div class="credit-copy">
+
+          <div class="credits-kicker">
+            Game Inspirations
+          </div>
+
+          <h2>
+            Classic ideas that helped shape the games.
+          </h2>
+
+          <p>
+            Several Pixel Hub games are based on well-known styles of games. These projects use those familiar ideas as programming exercises rather than copying the original games directly.
+          </p>
+
+          <ul>
+
+            <li>
+              <strong>Flappy Bird-style:</strong>
+              inspired by the simple one-button obstacle-avoidance style made popular by Flappy Bird.
+            </li>
+
+            <li>
+              <strong>Snake:</strong>
+              inspired by classic Snake games in which the player collects food while managing an increasingly long body.
+            </li>
+
+            <li>
+              <strong>Dino Game:</strong>
+              inspired by endless-runner games, including the offline dinosaur runner associated with Google Chrome.
+            </li>
+
+            <li>
+              <strong>Pong:</strong>
+              inspired by the classic paddle-and-ball game concept.
+            </li>
+
+            <li>
+              <strong>2048:</strong>
+              inspired by the number-combining sliding-tile puzzle concept.
+            </li>
+
+            <li>
+              <strong>Breakout:</strong>
+              inspired by classic brick-breaking arcade games in which a paddle keeps a ball in play.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="credit-card-art">
+
+          <svg
+            class="credits-svg credit-bob"
+            viewBox="0 0 400 300"
+            role="img"
+            aria-label="Pixel art symbols representing Pixel Hub games"
+          >
+
+            <rect
+              x="25"
+              y="30"
+              width="350"
+              height="235"
+              rx="34"
+              fill="#c45bff"
+              opacity="0.045"
+            />
+
+            <g fill="#4dff88">
+              <rect x="62" y="77" width="20" height="20"/>
+              <rect x="82" y="77" width="20" height="20"/>
+              <rect x="102" y="77" width="20" height="20"/>
+              <rect x="102" y="97" width="20" height="20"/>
+              <rect x="122" y="97" width="20" height="20"/>
+            </g>
+
+            <rect x="168" y="73" width="28" height="28" fill="#ffd75e"/>
+            <rect x="196" y="81" width="19" height="14" fill="#ff8d5c"/>
+
+            <rect x="260" y="65" width="9" height="64" fill="#69f7ff"/>
+            <rect x="322" y="83" width="9" height="64" fill="#69f7ff"/>
+            <circle cx="296" cy="104" r="8" fill="#ffffff"/>
+
+            <rect x="68" y="167" width="54" height="54" fill="#ffd75e"/>
+            <text x="95" y="201" fill="#111118" font-size="23" font-family="system-ui" font-weight="900" text-anchor="middle">2048</text>
+
+            <g>
+              <rect x="165" y="163" width="42" height="18" fill="#69f7ff"/>
+              <rect x="211" y="163" width="42" height="18" fill="#c45bff"/>
+              <rect x="188" y="185" width="42" height="18" fill="#4dff88"/>
+              <rect x="165" y="217" width="88" height="10" fill="#69f7ff"/>
+              <circle cx="210" cy="208" r="8" fill="#ffffff"/>
+            </g>
+
+            <g fill="#c45bff">
+              <rect x="288" y="173" width="17" height="17"/>
+              <rect x="305" y="173" width="17" height="17"/>
+              <rect x="322" y="173" width="17" height="17"/>
+              <rect x="288" y="190" width="17" height="17"/>
+              <rect x="305" y="190" width="17" height="17"/>
+            </g>
+
+          </svg>
+
+        </div>
+
+      </section>
+
+
+      <section class="credit-card reverse">
+
+        <div class="credit-copy">
+
+          <div class="credits-kicker">
+            Learning Resources
+          </div>
+
+          <h2>
+            References that support the coding process.
+          </h2>
+
+          <p>
+            Building interactive browser games requires working with many different parts of HTML, CSS, JavaScript, Canvas, events, timing, and browser storage. Documentation and programming references are useful when checking how those tools work.
+          </p>
+
+          <div class="resource-grid">
+
+            <div class="resource-card">
+              <strong>
+                MDN Web Docs
+              </strong>
+              A reference for HTML, CSS, JavaScript, Canvas, browser events, and web APIs.
+            </div>
+
+            <div class="resource-card">
+              <strong>
+                HTML Canvas Guides
+              </strong>
+              Helpful for understanding drawing, animation loops, shapes, and game rendering.
+            </div>
+
+            <div class="resource-card">
+              <strong>
+                JavaScript References
+              </strong>
+              Useful when working with arrays, objects, functions, keyboard input, timing, and browser APIs.
+            </div>
+
+            <div class="resource-card">
+              <strong>
+                Browser Developer Tools
+              </strong>
+              Used to inspect files, view console errors, test layouts, and debug problems while the website is running.
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <section class="credit-card">
+
+        <div class="credit-copy">
+
+          <div class="credits-kicker">
+            Building Process
+          </div>
+
+          <h2>
+            Credit also belongs to testing and revision.
+          </h2>
+
+          <p>
+            Pixel Hub has changed through repeated testing. Features have been added, removed, reorganized, and adjusted after problems appeared while the games were running.
+          </p>
+
+          <p>
+            That process has included fixing game-file loading, Canvas sizing, controls, countdowns, graphics, difficulty settings, power-ups, page navigation, responsive layouts, and visual design. Debugging is an important part of the project because a game that looks correct in code still has to work when someone presses Play.
+          </p>
+
+          <p>
+            Feedback also matters. Noticing that a button does not respond, that a game is too fast, that a page is difficult to navigate, or that something does not fit the Canvas provides information that can be used to make the next version better.
+          </p>
+
+        </div>
+
+
+        <div class="credit-card-art">
+
+          <svg
+            class="credits-svg credit-float"
+            viewBox="0 0 400 300"
+            role="img"
+            aria-label="Pixel art code window with check marks"
+          >
+
+            <rect
+              x="25"
+              y="30"
+              width="350"
+              height="235"
+              rx="34"
+              fill="#69f7ff"
+              opacity="0.045"
+            />
+
+            <rect
+              x="58"
+              y="68"
+              width="225"
+              height="158"
+              fill="#111118"
+              stroke="#69f7ff"
+              stroke-width="6"
+            />
+
+            <rect
+              x="58"
+              y="68"
+              width="225"
+              height="27"
+              fill="#181825"
+            />
+
+            <circle cx="74" cy="81" r="5" fill="#ff667d"/>
+            <circle cx="90" cy="81" r="5" fill="#ffd75e"/>
+            <circle cx="106" cy="81" r="5" fill="#4dff88"/>
+
+            <rect x="79" y="115" width="83" height="7" fill="#c45bff"/>
+            <rect x="96" y="135" width="120" height="7" fill="#69f7ff"/>
+            <rect x="96" y="155" width="97" height="7" fill="#4dff88"/>
+            <rect x="79" y="175" width="142" height="7" fill="#ffd75e"/>
+            <rect x="79" y="195" width="63" height="7" fill="#ff667d"/>
+
+            <g
+              transform="translate(289 92)"
+              class="credit-pulse"
+            >
+              <rect
+                x="0"
+                y="0"
+                width="63"
+                height="63"
+                rx="13"
+                fill="#4dff88"
+              />
+
+              <path
+                d="M15 33 L27 45 L49 19"
+                fill="none"
+                stroke="#111118"
+                stroke-width="8"
+                stroke-linecap="square"
+              />
+            </g>
+
+            <g transform="translate(293 175)">
+              <rect
+                x="0"
+                y="0"
+                width="57"
+                height="57"
+                rx="12"
+                fill="#c45bff"
+              />
+
+              <text
+                x="28.5"
+                y="38"
+                fill="#ffffff"
+                font-size="30"
+                font-family="system-ui"
+                font-weight="900"
+                text-anchor="middle"
+              >
+                !
+              </text>
+            </g>
+
+          </svg>
+
+        </div>
+
+      </section>
+
+
+      <section class="credit-card reverse">
+
+        <div class="credit-copy">
+
+          <div class="credits-kicker">
+            General Thanks
+          </div>
+
+          <h2>
+            A thank-you to the wider programming and game-development community.
+          </h2>
+
+          <p>
+            Tutorials, documentation, examples, open discussions, and educational material created by developers and teachers make learning web development much easier. Even when a project uses its own code, being able to research a programming concept or understand an unfamiliar browser feature is an important part of learning.
+          </p>
+
+          <p>
+            Thanks also goes to the designers and game developers whose work helped establish many of the classic game ideas that continue to be useful for learning programming today.
+          </p>
+
+          <p>
+            Finally, thanks to anyone who tests Pixel Hub, notices a problem, suggests an improvement, or simply plays one of the games. Testing a project is one of the best ways to discover what should be improved next.
+          </p>
+
+        </div>
+
+
+        <div class="credit-card-art">
+
+          <svg
+            class="credits-svg credit-bob"
+            viewBox="0 0 400 300"
+            role="img"
+            aria-label="Pixel art thank-you arcade sign"
+          >
+
+            <rect
+              x="25"
+              y="30"
+              width="350"
+              height="235"
+              rx="34"
+              fill="#4dff88"
+              opacity="0.04"
+            />
+
+            <rect
+              x="74"
+              y="84"
+              width="252"
+              height="120"
+              fill="#111118"
+              stroke="#c45bff"
+              stroke-width="7"
+            />
+
+            <rect
+              x="88"
+              y="99"
+              width="224"
+              height="90"
+              fill="#080812"
+              stroke="#69f7ff"
+              stroke-width="4"
+            />
+
+            <text
+              x="200"
+              y="140"
+              fill="#4dff88"
+              font-size="27"
+              font-family="system-ui"
+              font-weight="900"
+              text-anchor="middle"
+              letter-spacing="3"
+            >
+              THANKS
+            </text>
+
+            <text
+              x="200"
+              y="169"
+              fill="#ffffff"
+              font-size="14"
+              font-family="system-ui"
+              font-weight="800"
+              text-anchor="middle"
+            >
+              FOR PLAYING
+            </text>
+
+            <g
+              fill="#ffd75e"
+              class="credit-pulse"
+            >
+              <rect x="50" y="56" width="7" height="23"/>
+              <rect x="42" y="64" width="23" height="7"/>
+              <rect x="343" y="57" width="7" height="23"/>
+              <rect x="335" y="65" width="23" height="7"/>
+              <rect x="50" y="225" width="7" height="23"/>
+              <rect x="42" y="233" width="23" height="7"/>
+              <rect x="343" y="225" width="7" height="23"/>
+              <rect x="335" y="233" width="23" height="7"/>
+            </g>
+
+            <rect x="95" y="220" width="210" height="8" fill="#4dff88"/>
+
+          </svg>
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+    <section class="credits-final">
+
+      <h2>
+        Thanks for being part of Pixel Hub.
+      </h2>
+
+      <p>
+        Whether you are playing a game, testing a feature, learning from the code, or helping improve the project, you are contributing to the process that keeps Pixel Hub growing.
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <footer class="site-footer">
+
+    <p>
+      © 2026 Pixel Hub
+    </p>
+
+  </footer>
+
+
+  <script>
+    // ========================================
+    // Pixel Hub - Dark / Light Mode
+    // ========================================
+
+    const themeToggle =
+      document.getElementById(
+        "theme-toggle"
+      );
+
+
+    function applySavedTheme() {
+      const savedTheme =
+        localStorage.getItem(
+          "pixelArcadeTheme"
+        );
+
+
+      if (
+        savedTheme === "light"
+      ) {
+        document.body.classList.remove(
+          "theme-dark"
+        );
+
+        document.body.classList.add(
+          "theme-light"
+        );
+
+      } else {
+
+        document.body.classList.remove(
+          "theme-light"
+        );
+
+        document.body.classList.add(
+          "theme-dark"
+        );
+      }
+    }
+
+
+    applySavedTheme();
+
+
+    if (themeToggle) {
+      themeToggle.addEventListener(
+        "click",
+        () => {
+
+          const isLight =
+            document.body.classList.contains(
+              "theme-light"
+            );
+
+
+          document.body.classList.toggle(
+            "theme-light",
+            !isLight
+          );
+
+
+          document.body.classList.toggle(
+            "theme-dark",
+            isLight
+          );
+
+
+          localStorage.setItem(
+            "pixelArcadeTheme",
+            isLight
+              ? "dark"
+              : "light"
+          );
+        }
+      );
+    }
+  </script>
+
+</body>
+
+</html>

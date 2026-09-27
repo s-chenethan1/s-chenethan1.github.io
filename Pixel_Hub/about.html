@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <title>Pixel Hub - About</title>
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <style>
+    /* ========================================
+       ABOUT PAGE ONLY
+    ======================================== */
+
+    .about-page {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    .about-hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 2rem;
+      align-items: center;
+      padding: 3.5rem 0 4rem;
+    }
+
+    .about-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      color: var(--neon-green);
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .about-kicker::before {
+      content: "";
+      width: 20px;
+      height: 3px;
+      background: currentColor;
+      box-shadow: 7px 0 currentColor;
+    }
+
+    .about-hero h1 {
+      margin: 0;
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .about-hero p {
+      max-width: 680px;
+      margin-top: 1.25rem;
+      line-height: 1.8;
+      opacity: 0.82;
+    }
+
+    .about-hero-art,
+    .about-art {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-svg {
+      width: min(100%, 420px);
+      height: auto;
+      image-rendering: pixelated;
+      filter:
+        drop-shadow(
+          0 18px 28px
+          rgba(0, 0, 0, 0.3)
+        );
+    }
+
+    .about-card {
+      margin-bottom: 1rem;
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 22px;
+      background: rgba(17, 17, 24, 0.58);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .about-card.reverse .about-copy {
+      order: 2;
+    }
+
+    .about-card.reverse .about-art {
+      order: 1;
+    }
+
+    .about-card h2 {
+      margin-bottom: 0.85rem;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      letter-spacing: -0.03em;
+    }
+
+    .about-card p {
+      margin-bottom: 1rem;
+      line-height: 1.8;
+      opacity: 0.82;
+    }
+
+    .about-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(180px, 1fr)
+        );
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+
+    .tech-card {
+      padding: 1rem;
+      border: 1px solid rgba(58, 242, 255, 0.18);
+      border-radius: 16px;
+      background: rgba(8, 8, 18, 0.55);
+    }
+
+    .tech-card h3 {
+      margin-bottom: 0.45rem;
+      color: var(--neon-blue);
+    }
+
+    .tech-card p {
+      margin: 0;
+      font-size: 0.92rem;
+    }
+
+    .about-list {
+      margin-top: 1rem;
+      padding-left: 1.25rem;
+    }
+
+    .about-list li {
+      margin-bottom: 0.7rem;
+      line-height: 1.65;
+    }
+
+    .about-highlight {
+      border-color: rgba(77, 255, 136, 0.22);
+
+      background:
+        radial-gradient(
+          circle at right,
+          rgba(77, 255, 136, 0.08),
+          transparent 55%
+        ),
+        rgba(17, 17, 24, 0.58);
+    }
+
+    .about-final {
+      margin: 1rem 0 4rem;
+      padding: clamp(2rem, 6vw, 4rem);
+      border: 1px solid rgba(196, 91, 255, 0.22);
+      border-radius: 22px;
+      text-align: center;
+
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(196, 91, 255, 0.08),
+          transparent 60%
+        ),
+        rgba(17, 17, 24, 0.55);
+    }
+
+    .about-final h2 {
+      margin-bottom: 0.8rem;
+      font-size: clamp(2rem, 5vw, 3rem);
+    }
+
+    .about-final p {
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.8;
+      opacity: 0.8;
+    }
+
+    body.theme-light .about-card,
+    body.theme-light .about-final {
+      background: rgba(255, 255, 255, 0.78);
+      border-color: rgba(17, 17, 24, 0.1);
+    }
+
+    body.theme-light .tech-card {
+      background: rgba(255, 255, 255, 0.82);
+      border-color: rgba(17, 17, 24, 0.09);
+    }
+
+    @media (max-width: 820px) {
+      .about-hero,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-card.reverse .about-copy,
+      .about-card.reverse .about-art {
+        order: initial;
+      }
+    }
+
+
+    /* ========================================
+       ABOUT PAGE PIXEL ART MOTION
+    ======================================== */
+
+    .motion-float {
+      animation: about-float 4.2s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    .motion-float-slow {
+      animation: about-float-slow 5.6s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    .motion-bob {
+      animation: about-bob 3.7s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    .motion-pulse {
+      animation: about-pulse 2.8s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    @keyframes about-float {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-9px);
+      }
+    }
+
+    @keyframes about-float-slow {
+      0%,
+      100% {
+        transform:
+          translateY(0)
+          rotate(0deg);
+      }
+
+      50% {
+        transform:
+          translateY(7px)
+          rotate(0.6deg);
+      }
+    }
+
+    @keyframes about-bob {
+      0%,
+      100% {
+        transform:
+          translateY(0)
+          scale(1);
+      }
+
+      50% {
+        transform:
+          translateY(-6px)
+          scale(1.015);
+      }
+    }
+
+    @keyframes about-pulse {
+      0%,
+      100% {
+        opacity: 0.72;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .motion-float,
+      .motion-float-slow,
+      .motion-bob,
+      .motion-pulse {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+
+
+<body class="theme-dark">
+
+  <header class="site-header">
+
+    <div class="logo">
+      🎮 Pixel Hub
+    </div>
+
+    <nav class="nav">
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="games.html">
+        Games
+      </a>
+
+      <a href="how-to-play.html">
+        How to Play
+      </a>
+
+      <a
+        href="about.html"
+        class="active"
+      >
+        About
+      </a>
+
+      <a href="credits.html">
+        Credits
+      </a>
+
+      <button
+        id="theme-toggle"
+        class="btn-outline"
+        type="button"
+      >
+        🌙 Dark / Light
+      </button>
+
+    </nav>
+
+  </header>
+
+
+  <main class="about-page">
+
+    <!-- =====================================
+         HERO
+    ====================================== -->
+
+    <section class="about-hero">
+
+      <div class="about-copy">
+
+        <div class="about-kicker">
+          Behind Pixel Hub
+        </div>
+
+        <h1>
+          A browser arcade built to learn, experiment, and play.
+        </h1>
+
+        <p>
+          Pixel Hub began as a coding project focused on learning how websites and browser games work. Instead of building only a normal information website, the project became an interactive place where someone can choose a game and start playing directly in the browser.
+        </p>
+
+        <p>
+          The website combines frontend design, JavaScript game logic, HTML Canvas graphics, high-score saving, responsive layouts, and a growing collection of classic-style mini-games. Each new game creates another programming challenge and another chance to improve the project.
+        </p>
+
+      </div>
+
+
+      <div
+        class="about-hero-art"
+        aria-label="Pixel art computer and arcade machine"
+      >
+
+        <svg
+          class="about-svg motion-float"
+          viewBox="0 0 430 340"
+          role="img"
+          aria-labelledby="hero-art-title"
+        >
+
+          <title id="hero-art-title">
+            Pixel art computer connected to an arcade cabinet
+          </title>
+
+          <rect
+            x="25"
+            y="30"
+            width="380"
+            height="275"
+            rx="36"
+            fill="#c45bff"
+            opacity="0.055"
+          />
+
+          <g fill="#69f7ff">
+            <rect
+              x="48"
+              y="55"
+              width="7"
+              height="25"
+            />
+
+            <rect
+              x="39"
+              y="64"
+              width="25"
+              height="7"
+            />
+
+            <rect
+              x="365"
+              y="66"
+              width="6"
+              height="21"
+            />
+
+            <rect
+              x="358"
+              y="73"
+              width="21"
+              height="6"
+            />
+          </g>
+
+
+          <!-- Computer -->
+
+          <rect
+            x="45"
+            y="102"
+            width="215"
+            height="140"
+            fill="#111118"
+            stroke="#69f7ff"
+            stroke-width="6"
+          />
+
+          <rect
+            x="62"
+            y="119"
+            width="181"
+            height="106"
+            fill="#080812"
+          />
+
+          <rect
+            x="98"
+            y="249"
+            width="110"
+            height="15"
+            fill="#69f7ff"
+          />
+
+          <rect
+            x="126"
+            y="264"
+            width="54"
+            height="16"
+            fill="#c45bff"
+          />
+
+
+          <!-- Snake on screen -->
+
+          <rect
+            x="90"
+            y="162"
+            width="17"
+            height="17"
+            fill="#4dff88"
+          />
+
+          <rect
+            x="107"
+            y="162"
+            width="17"
+            height="17"
+            fill="#4dff88"
+          />
+
+          <rect
+            x="124"
+            y="162"
+            width="17"
+            height="17"
+            fill="#4dff88"
+          />
+
+          <rect
+            x="124"
+            y="145"
+            width="17"
+            height="17"
+            fill="#4dff88"
+          />
+
+          <rect
+            x="141"
+            y="145"
+            width="17"
+            height="17"
+            fill="#4dff88"
+          />
+
+          <rect
+            x="190"
+            y="176"
+            width="17"
+            height="17"
+            fill="#ff667d"
+          />
+
+          <rect
+            x="196"
+            y="169"
+            width="6"
+            height="8"
+            fill="#4dff88"
+          />
+
+
+          <!-- Connection -->
+
+          <rect
+            x="259"
+            y="162"
+            width="28"
+            height="8"
+            fill="#ffd75e"
+          />
+
+          <rect
+            x="282"
+            y="154"
+            width="24"
+            height="8"
+            fill="#ffd75e"
+          />
+
+
+          <!-- Arcade -->
+
+          <path
+            d="
+              M305 82
+              H370
+              L382 112
+              V274
+              H292
+              V112
+              Z
+            "
+            fill="#111118"
+            stroke="#c45bff"
+            stroke-width="5"
+            stroke-linejoin="round"
+          />
+
+          <rect
+            x="309"
+            y="116"
+            width="56"
+            height="50"
+            fill="#080812"
+            stroke="#69f7ff"
+            stroke-width="4"
+          />
+
+          <rect
+            x="320"
+            y="130"
+            width="12"
+            height="12"
+            fill="#ffd75e"
+          />
+
+          <rect
+            x="332"
+            y="130"
+            width="12"
+            height="12"
+            fill="#ffd75e"
+          />
+
+          <rect
+            x="344"
+            y="136"
+            width="10"
+            height="10"
+            fill="#ff8d5c"
+          />
+
+          <path
+            d="
+              M305 178
+              H368
+              L375 199
+              H298
+              Z
+            "
+            fill="#181825"
+            stroke="#69f7ff"
+            stroke-width="3"
+          />
+
+          <rect
+            x="319"
+            y="181"
+            width="6"
+            height="19"
+            fill="#4dff88"
+          />
+
+          <rect
+            x="313"
+            y="177"
+            width="18"
+            height="6"
+            fill="#4dff88"
+          />
+
+          <rect
+            x="345"
+            y="184"
+            width="12"
+            height="12"
+            fill="#c45bff"
+          />
+
+        </svg>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         PROJECT GOAL
+    ====================================== -->
+
+    <section class="about-card">
+
+      <div class="about-grid">
+
+        <div class="about-copy">
+
+          <h2>
+            The Project Goal
+          </h2>
+
+          <p>
+            Pixel Hub is designed to make small browser games quick and easy to access. The idea is simple: open the website, choose a game, and begin playing without having to download an application or create an account.
+          </p>
+
+          <p>
+            At the same time, the website acts as a programming project. Building each game creates opportunities to practice HTML, CSS, JavaScript, Canvas graphics, game loops, collision detection, scoring systems, animations, responsive layouts, and debugging.
+          </p>
+
+        </div>
+
+
+        <div class="about-art">
+
+          <svg
+            class="about-svg motion-bob"
+            viewBox="0 0 360 250"
+            role="img"
+            aria-labelledby="goal-art-title"
+          >
+
+            <title id="goal-art-title">
+              Pixel art target with coding symbols
+            </title>
+
+            <rect
+              width="360"
+              height="250"
+              rx="28"
+              fill="#080812"
+            />
+
+            <circle
+              cx="180"
+              cy="125"
+              r="83"
+              fill="none"
+              stroke="#69f7ff"
+              stroke-width="18"
+            />
+
+            <circle
+              cx="180"
+              cy="125"
+              r="55"
+              fill="none"
+              stroke="#c45bff"
+              stroke-width="18"
+            />
+
+            <circle
+              cx="180"
+              cy="125"
+              r="26"
+              fill="#4dff88"
+            />
+
+            <path
+              d="M68 125 H147"
+              stroke="#ffd75e"
+              stroke-width="10"
+            />
+
+            <polygon
+              points="
+                145,108
+                176,125
+                145,142
+              "
+              fill="#ffd75e"
+            />
+
+          </svg>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         AUDIENCE
+    ====================================== -->
+
+    <section class="about-card reverse">
+
+      <div class="about-grid">
+
+        <div class="about-copy">
+
+          <h2>
+            Who Pixel Hub Is For
+          </h2>
+
+          <p>
+            Pixel Hub is mainly designed for students, teenagers, and casual gamers who want a quick game during free time or a short break.
+          </p>
+
+          <p>
+            The games are meant to be easy to understand. Most use familiar keyboard controls such as the Arrow Keys, WASD, or Space. The goal is to reduce the amount of setup between arriving at the website and actually playing.
+          </p>
+
+          <p>
+            The website also serves another audience: people learning how browser games are made. Because the games run with ordinary web technologies, the project can be used to explore how game logic connects with HTML and Canvas graphics.
+          </p>
+
+        </div>
+
+
+        <div class="about-art">
+
+          <svg
+            class="about-svg motion-float-slow"
+            viewBox="0 0 360 250"
+            role="img"
+            aria-labelledby="audience-art-title"
+          >
+
+            <title id="audience-art-title">
+              Pixel art players around a game screen
+            </title>
+
+            <rect
+              width="360"
+              height="250"
+              rx="28"
+              fill="#080812"
+            />
+
+            <rect
+              x="105"
+              y="46"
+              width="150"
+              height="110"
+              fill="#171725"
+              stroke="#69f7ff"
+              stroke-width="5"
+            />
+
+            <rect
+              x="121"
+              y="62"
+              width="118"
+              height="78"
+              fill="#111118"
+            />
+
+            <rect
+              x="142"
+              y="91"
+              width="7"
+              height="34"
+              fill="#4dff88"
+            />
+
+            <rect
+              x="210"
+              y="79"
+              width="7"
+              height="34"
+              fill="#c45bff"
+            />
+
+            <rect
+              x="177"
+              y="100"
+              width="8"
+              height="8"
+              fill="#ffffff"
+            />
+
+            <circle
+              cx="70"
+              cy="177"
+              r="28"
+              fill="#ffd75e"
+            />
+
+            <circle
+              cx="290"
+              cy="177"
+              r="28"
+              fill="#c45bff"
+            />
+
+            <rect
+              x="45"
+              y="209"
+              width="50"
+              height="18"
+              fill="#69f7ff"
+            />
+
+            <rect
+              x="265"
+              y="209"
+              width="50"
+              height="18"
+              fill="#4dff88"
+            />
+
+          </svg>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         TECHNOLOGIES
+    ====================================== -->
+
+    <section class="about-card">
+
+      <h2>
+        Technologies Used
+      </h2>
+
+      <p>
+        Pixel Hub is currently a frontend browser project. A traditional backend or Python server is not required for this version because the games and most website features can run directly in the user's browser.
+      </p>
+
+      <div class="tech-grid">
+
+        <div class="tech-card">
+
+          <h3>
+            HTML5
+          </h3>
+
+          <p>
+            Builds the structure of the pages, navigation, game cards, buttons, and shared Canvas.
+          </p>
+
+        </div>
+
+
+        <div class="tech-card">
+
+          <h3>
+            CSS3
+          </h3>
+
+          <p>
+            Controls the layout, responsive design, neon visual style, cards, buttons, and dark/light themes.
+          </p>
+
+        </div>
+
+
+        <div class="tech-card">
+
+          <h3>
+            JavaScript
+          </h3>
+
+          <p>
+            Powers the games, keyboard controls, collisions, scoring, difficulty, power-ups, and interactive features.
+          </p>
+
+        </div>
+
+
+        <div class="tech-card">
+
+          <h3>
+            HTML Canvas
+          </h3>
+
+          <p>
+            Acts as the shared game screen where JavaScript draws the game graphics.
+          </p>
+
+        </div>
+
+
+        <div class="tech-card">
+
+          <h3>
+            LocalStorage
+          </h3>
+
+          <p>
+            Saves information such as high scores and the user's light or dark theme choice.
+          </p>
+
+        </div>
+
+
+        <div class="tech-card">
+
+          <h3>
+            SVG
+          </h3>
+
+          <p>
+            Adds pixel-style artwork directly inside the page without creating extra image files.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         GAME STRUCTURE
+    ====================================== -->
+
+    <section class="about-card reverse">
+
+      <div class="about-grid">
+
+        <div class="about-copy">
+
+          <h2>
+            How the Games Fit Together
+          </h2>
+
+          <p>
+            Pixel Hub uses one shared game window on the Games page, while every game keeps its own gameplay code in a separate JavaScript file. This makes individual games easier to test, repair, and improve.
+          </p>
+
+          <p>
+            When a player presses a Play button, the page selects the correct game, shows the countdown, starts the game, updates the score, and keeps everything inside the same 600 × 600 Canvas.
+          </p>
+
+          <p>
+            This structure also makes expansion easier. A new game can be added as its own JavaScript file instead of mixing every game into one very large file.
+          </p>
+
+        </div>
+
+
+        <div class="about-art">
+
+          <svg
+            class="about-svg motion-bob"
+            viewBox="0 0 360 250"
+            role="img"
+            aria-labelledby="structure-art-title"
+          >
+
+            <title id="structure-art-title">
+              Pixel art game files connecting to one game screen
+            </title>
+
+            <rect
+              width="360"
+              height="250"
+              rx="28"
+              fill="#080812"
+            />
+
+            <rect
+              x="28"
+              y="32"
+              width="98"
+              height="40"
+              fill="#171725"
+              stroke="#4dff88"
+              stroke-width="4"
+            />
+
+            <rect
+              x="28"
+              y="85"
+              width="98"
+              height="40"
+              fill="#171725"
+              stroke="#69f7ff"
+              stroke-width="4"
+            />
+
+            <rect
+              x="28"
+              y="138"
+              width="98"
+              height="40"
+              fill="#171725"
+              stroke="#c45bff"
+              stroke-width="4"
+            />
+
+            <rect
+              x="28"
+              y="191"
+              width="98"
+              height="28"
+              fill="#171725"
+              stroke="#ffd75e"
+              stroke-width="4"
+            />
+
+            <rect
+              x="126"
+              y="49"
+              width="58"
+              height="6"
+              fill="#4dff88"
+            />
+
+            <rect
+              x="126"
+              y="102"
+              width="58"
+              height="6"
+              fill="#69f7ff"
+            />
+
+            <rect
+              x="126"
+              y="155"
+              width="58"
+              height="6"
+              fill="#c45bff"
+            />
+
+            <rect
+              x="126"
+              y="202"
+              width="58"
+              height="6"
+              fill="#ffd75e"
+            />
+
+            <rect
+              x="184"
+              y="50"
+              width="146"
+              height="145"
+              fill="#171725"
+              stroke="#ffffff"
+              stroke-width="5"
+            />
+
+            <rect
+              x="201"
+              y="67"
+              width="112"
+              height="111"
+              fill="#111118"
+            />
+
+            <rect
+              x="217"
+              y="99"
+              width="7"
+              height="46"
+              fill="#ffffff"
+            />
+
+            <rect
+              x="290"
+              y="109"
+              width="7"
+              height="46"
+              fill="#ffffff"
+            />
+
+            <rect
+              x="254"
+              y="123"
+              width="8"
+              height="8"
+              fill="#69f7ff"
+            />
+
+          </svg>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         LEARNING
+    ====================================== -->
+
+    <section class="about-card">
+
+      <h2>
+        What the Project Helps Practice
+      </h2>
+
+      <p>
+        Building Pixel Hub is not only about completing games. It is also about learning how to plan, test, debug, and improve a project over time.
+      </p>
+
+      <ul class="about-list">
+
+        <li>
+          Breaking a larger project into smaller pages and files.
+        </li>
+
+        <li>
+          Keeping each game separate so one game's code does not need to control every other game.
+        </li>
+
+        <li>
+          Using JavaScript functions, variables, loops, arrays, objects, and event listeners.
+        </li>
+
+        <li>
+          Drawing graphics and animations with Canvas and SVG.
+        </li>
+
+        <li>
+          Building movement, collision detection, scoring, game-over systems, power-ups, and difficulty settings.
+        </li>
+
+        <li>
+          Saving browser data with LocalStorage.
+        </li>
+
+        <li>
+          Testing responsive layouts on different screen sizes.
+        </li>
+
+        <li>
+          Finding and fixing file-path, script-loading, and JavaScript errors.
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <!-- =====================================
+         FUTURE
+    ====================================== -->
+
+    <section class="about-card about-highlight">
+
+      <div class="about-grid">
+
+        <div class="about-copy">
+
+          <h2>
+            A Project That Can Keep Growing
+          </h2>
+
+          <p>
+            Pixel Hub is designed so more games and features can be added over time. The arcade can continue expanding without rebuilding the entire website from the beginning.
+          </p>
+
+          <p>
+            Possible future improvements include more mini-games, better graphics, sound effects, additional accessibility options, new game modes, improved score systems, and other features that make the arcade more complete.
+          </p>
+
+          <p>
+            The important part is that new ideas can be added step by step. Each improvement becomes another opportunity to practice coding and problem solving.
+          </p>
+
+        </div>
+
+
+        <div class="about-art">
+
+          <svg
+            class="about-svg motion-float"
+            viewBox="0 0 360 250"
+            role="img"
+            aria-labelledby="future-art-title"
+          >
+
+            <title id="future-art-title">
+              Pixel art platforms rising upward toward stars
+            </title>
+
+            <rect
+              width="360"
+              height="250"
+              rx="28"
+              fill="#080812"
+            />
+
+            <rect
+              x="45"
+              y="202"
+              width="80"
+              height="18"
+              fill="#69f7ff"
+            />
+
+            <rect
+              x="140"
+              y="160"
+              width="80"
+              height="18"
+              fill="#4dff88"
+            />
+
+            <rect
+              x="235"
+              y="118"
+              width="80"
+              height="18"
+              fill="#c45bff"
+            />
+
+            <rect
+              x="80"
+              y="162"
+              width="9"
+              height="32"
+              fill="#ffffff"
+            />
+
+            <rect
+              x="69"
+              y="162"
+              width="31"
+              height="9"
+              fill="#ffffff"
+            />
+
+            <rect
+              x="175"
+              y="120"
+              width="9"
+              height="32"
+              fill="#ffffff"
+            />
+
+            <rect
+              x="164"
+              y="120"
+              width="31"
+              height="9"
+              fill="#ffffff"
+            />
+
+            <rect
+              x="270"
+              y="55"
+              width="8"
+              height="28"
+              fill="#ffd75e"
+            />
+
+            <rect
+              x="260"
+              y="65"
+              width="28"
+              height="8"
+              fill="#ffd75e"
+            />
+
+            <rect
+              x="109"
+              y="62"
+              width="7"
+              height="23"
+              fill="#69f7ff"
+            />
+
+            <rect
+              x="101"
+              y="70"
+              width="23"
+              height="7"
+              fill="#69f7ff"
+            />
+
+          </svg>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         END
+    ====================================== -->
+
+    <section class="about-final">
+
+      <h2>
+        Built one game at a time.
+      </h2>
+
+      <p>
+        Pixel Hub is a growing coding project centered around simple browser games, clean organization, and learning through building. Every new game and feature creates another chance to practice programming, design, debugging, and problem solving.
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <footer class="site-footer">
+
+    <p>
+      © 2026 Pixel Hub
+    </p>
+
+  </footer>
+
+
+  <script>
+    // ========================================
+    // Pixel Hub - Dark / Light Mode
+    // ========================================
+
+    const themeToggle =
+      document.getElementById(
+        "theme-toggle"
+      );
+
+
+    function applySavedTheme() {
+      const savedTheme =
+        localStorage.getItem(
+          "pixelArcadeTheme"
+        );
+
+
+      if (
+        savedTheme === "light"
+      ) {
+        document.body.classList.remove(
+          "theme-dark"
+        );
+
+        document.body.classList.add(
+          "theme-light"
+        );
+
+      } else {
+
+        document.body.classList.remove(
+          "theme-light"
+        );
+
+        document.body.classList.add(
+          "theme-dark"
+        );
+      }
+    }
+
+
+    applySavedTheme();
+
+
+    if (themeToggle) {
+      themeToggle.addEventListener(
+        "click",
+        () => {
+
+          const isLight =
+            document.body.classList.contains(
+              "theme-light"
+            );
+
+
+          document.body.classList.toggle(
+            "theme-light",
+            !isLight
+          );
+
+
+          document.body.classList.toggle(
+            "theme-dark",
+            isLight
+          );
+
+
+          localStorage.setItem(
+            "pixelArcadeTheme",
+            isLight
+              ? "dark"
+              : "light"
+          );
+        }
+      );
+    }
+  </script>
+
+</body>
+
+</html>

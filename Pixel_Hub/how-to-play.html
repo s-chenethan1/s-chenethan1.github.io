@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Pixel Hub - How to Play</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ========================================
+       HOW TO PLAY PAGE ONLY
+    ======================================== */
+
+    .how-page {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    .how-hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 2rem;
+      align-items: center;
+      padding: 3.5rem 0 4rem;
+    }
+
+    .how-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+      color: var(--neon-green);
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .how-kicker::before {
+      content: "";
+      width: 20px;
+      height: 3px;
+      background: currentColor;
+      box-shadow: 7px 0 currentColor;
+    }
+
+    .how-hero h1 {
+      margin: 0;
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .how-hero p {
+      max-width: 680px;
+      margin-top: 1.25rem;
+      line-height: 1.8;
+      opacity: 0.82;
+    }
+
+    .how-hero-art,
+    .game-guide-art {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .how-svg {
+      width: min(100%, 420px);
+      height: auto;
+      image-rendering: pixelated;
+      filter:
+        drop-shadow(
+          0 18px 28px
+          rgba(0, 0, 0, 0.3)
+        );
+    }
+
+    .quick-start {
+      margin-bottom: 1rem;
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      border: 1px solid rgba(77, 255, 136, 0.22);
+      border-radius: 22px;
+      background:
+        radial-gradient(
+          circle at right,
+          rgba(77, 255, 136, 0.08),
+          transparent 55%
+        ),
+        rgba(17, 17, 24, 0.58);
+    }
+
+    .quick-start h2,
+    .game-guide h2 {
+      margin-bottom: 0.85rem;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      letter-spacing: -0.03em;
+    }
+
+    .quick-start p,
+    .game-guide p {
+      margin-bottom: 1rem;
+      line-height: 1.8;
+      opacity: 0.82;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(
+          auto-fit,
+          minmax(190px, 1fr)
+        );
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+
+    .step-card,
+    .control-card {
+      padding: 1rem;
+      border: 1px solid rgba(58, 242, 255, 0.18);
+      border-radius: 16px;
+      background: rgba(8, 8, 18, 0.55);
+    }
+
+    .step-card strong {
+      display: block;
+      margin-bottom: 0.45rem;
+      color: var(--neon-blue);
+      font-size: 1.05rem;
+    }
+
+    .game-guide {
+      margin-bottom: 1rem;
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 22px;
+      background: rgba(17, 17, 24, 0.58);
+    }
+
+    .game-guide-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.78fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .game-guide.reverse .game-guide-copy {
+      order: 2;
+    }
+
+    .game-guide.reverse .game-guide-art {
+      order: 1;
+    }
+
+    .game-label {
+      display: inline-block;
+      margin-bottom: 0.75rem;
+      padding: 0.42rem 0.7rem;
+      border-radius: 999px;
+      color: var(--neon-blue);
+      background: rgba(58, 242, 255, 0.08);
+      border: 1px solid rgba(58, 242, 255, 0.18);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .control-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin: 1rem 0;
+    }
+
+    .key {
+      min-width: 42px;
+      padding: 0.52rem 0.68rem;
+      border: 1px solid rgba(105, 247, 255, 0.38);
+      border-bottom-width: 4px;
+      border-radius: 9px;
+      background: rgba(8, 8, 18, 0.8);
+      color: inherit;
+      font-weight: 900;
+      text-align: center;
+      box-shadow: 0 7px 18px rgba(0, 0, 0, 0.16);
+    }
+
+    .guide-list {
+      margin: 1rem 0 0;
+      padding-left: 1.25rem;
+    }
+
+    .guide-list li {
+      margin-bottom: 0.7rem;
+      line-height: 1.65;
+    }
+
+    .tip-box {
+      margin-top: 1rem;
+      padding: 0.95rem 1rem;
+      border-left: 4px solid var(--neon-green);
+      border-radius: 10px;
+      background: rgba(77, 255, 136, 0.07);
+      line-height: 1.65;
+    }
+
+    .how-final {
+      margin: 1rem 0 4rem;
+      padding: clamp(2rem, 6vw, 4rem);
+      border: 1px solid rgba(196, 91, 255, 0.22);
+      border-radius: 22px;
+      text-align: center;
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(196, 91, 255, 0.08),
+          transparent 60%
+        ),
+        rgba(17, 17, 24, 0.55);
+    }
+
+    .how-final h2 {
+      margin-bottom: 0.8rem;
+      font-size: clamp(2rem, 5vw, 3rem);
+    }
+
+    .how-final p {
+      max-width: 700px;
+      margin: 0 auto 1.4rem;
+      line-height: 1.8;
+      opacity: 0.8;
+    }
+
+    .motion-float {
+      animation: how-float 4.2s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    .motion-bob {
+      animation: how-bob 3.7s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    .motion-pulse {
+      animation: how-pulse 2.8s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    @keyframes how-float {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-9px);
+      }
+    }
+
+    @keyframes how-bob {
+      0%,
+      100% {
+        transform: translateY(0) scale(1);
+      }
+
+      50% {
+        transform: translateY(-6px) scale(1.015);
+      }
+    }
+
+    @keyframes how-pulse {
+      0%,
+      100% {
+        opacity: 0.7;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+    }
+
+    body.theme-light .quick-start,
+    body.theme-light .game-guide,
+    body.theme-light .how-final {
+      background: rgba(255, 255, 255, 0.78);
+      border-color: rgba(17, 17, 24, 0.1);
+    }
+
+    body.theme-light .step-card,
+    body.theme-light .control-card,
+    body.theme-light .key {
+      background: rgba(255, 255, 255, 0.84);
+      border-color: rgba(17, 17, 24, 0.12);
+    }
+
+    @media (max-width: 820px) {
+      .how-hero,
+      .game-guide-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .game-guide.reverse .game-guide-copy,
+      .game-guide.reverse .game-guide-art {
+        order: initial;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .motion-float,
+      .motion-bob,
+      .motion-pulse {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+
+<body class="theme-dark">
+
+  <header class="site-header">
+
+    <div class="logo">
+      🎮 Pixel Hub
+    </div>
+
+    <nav class="nav">
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="games.html">
+        Games
+      </a>
+
+      <a
+        href="how-to-play.html"
+        class="active"
+      >
+        How to Play
+      </a>
+
+      <a href="about.html">
+        About
+      </a>
+
+      <a href="credits.html">
+        Credits
+      </a>
+
+      <button
+        id="theme-toggle"
+        class="btn-outline"
+        type="button"
+      >
+        🌙 Dark / Light
+      </button>
+
+    </nav>
+
+  </header>
+
+
+  <main class="how-page">
+
+    <section class="how-hero">
+
+      <div>
+
+        <div class="how-kicker">
+          Learn the Arcade
+        </div>
+
+        <h1>
+          How to Play Pixel Hub.
+        </h1>
+
+        <p>
+          Every Pixel Hub game has a different goal, but getting started follows the same pattern: choose a game, press Play, watch the countdown, focus on the game window, and use the controls listed here.
+        </p>
+
+        <p>
+          This guide covers all six current games: Flappy Bird-style, Snake, Dino, Pong, 2048, and Breakout. Use it as a quick reference before playing or whenever you forget a control.
+        </p>
+
+      </div>
+
+
+      <div
+        class="how-hero-art"
+        aria-label="Animated pixel art keyboard and game screen"
+      >
+
+        <svg
+          class="how-svg motion-float"
+          viewBox="0 0 430 340"
+          role="img"
+          aria-labelledby="how-hero-title"
+        >
+
+          <title id="how-hero-title">
+            Pixel art controls and arcade screen
+          </title>
+
+          <rect
+            x="25"
+            y="30"
+            width="380"
+            height="275"
+            rx="36"
+            fill="#3af2ff"
+            opacity="0.055"
+          />
+
+          <g
+            fill="#ffd75e"
+            class="motion-pulse"
+          >
+            <rect
+              x="48"
+              y="55"
+              width="7"
+              height="25"
+            />
+
+            <rect
+              x="39"
+              y="64"
+              width="25"
+              height="7"
+            />
+
+            <rect
+              x="365"
+              y="66"
+              width="6"
+              height="21"
+            />
+
+            <rect
+              x="358"
+              y="73"
+              width="21"
+              height="6"
+            />
+          </g>
+
+          <rect
+            x="58"
+            y="84"
+            width="178"
+            height="136"
+            fill="#111118"
+            stroke="#c45bff"
+            stroke-width="6"
+          />
+
+          <rect
+            x="72"
+            y="100"
+            width="150"
+            height="90"
+            fill="#080812"
+            stroke="#69f7ff"
+            stroke-width="4"
+          />
+
+          <circle
+            cx="111"
+            cy="145"
+            r="12"
+            fill="#ffd75e"
+          />
+
+          <rect
+            x="159"
+            y="116"
+            width="12"
+            height="60"
+            fill="#4dff88"
+          />
+
+          <rect
+            x="190"
+            y="126"
+            width="12"
+            height="50"
+            fill="#ff667d"
+          />
+
+          <g
+            transform="translate(257 88)"
+            class="motion-bob"
+          >
+
+            <rect
+              x="42"
+              y="0"
+              width="42"
+              height="42"
+              rx="7"
+              fill="#181825"
+              stroke="#69f7ff"
+              stroke-width="4"
+            />
+
+            <rect
+              x="0"
+              y="48"
+              width="42"
+              height="42"
+              rx="7"
+              fill="#181825"
+              stroke="#69f7ff"
+              stroke-width="4"
+            />
+
+            <rect
+              x="42"
+              y="48"
+              width="42"
+              height="42"
+              rx="7"
+              fill="#181825"
+              stroke="#69f7ff"
+              stroke-width="4"
+            />
+
+            <rect
+              x="84"
+              y="48"
+              width="42"
+              height="42"
+              rx="7"
+              fill="#181825"
+              stroke="#69f7ff"
+              stroke-width="4"
+            />
+
+            <text
+              x="63"
+              y="28"
+              fill="#ffffff"
+              font-size="20"
+              font-family="system-ui"
+              font-weight="900"
+              text-anchor="middle"
+            >
+              ↑
+            </text>
+
+            <text
+              x="21"
+              y="76"
+              fill="#ffffff"
+              font-size="20"
+              font-family="system-ui"
+              font-weight="900"
+              text-anchor="middle"
+            >
+              ←
+            </text>
+
+            <text
+              x="63"
+              y="76"
+              fill="#ffffff"
+              font-size="20"
+              font-family="system-ui"
+              font-weight="900"
+              text-anchor="middle"
+            >
+              ↓
+            </text>
+
+            <text
+              x="105"
+              y="76"
+              fill="#ffffff"
+              font-size="20"
+              font-family="system-ui"
+              font-weight="900"
+              text-anchor="middle"
+            >
+              →
+            </text>
+
+          </g>
+
+
+          <g transform="translate(255 205)">
+
+            <rect
+              x="0"
+              y="0"
+              width="38"
+              height="38"
+              rx="7"
+              fill="#181825"
+              stroke="#4dff88"
+              stroke-width="4"
+            />
+
+            <rect
+              x="44"
+              y="0"
+              width="38"
+              height="38"
+              rx="7"
+              fill="#181825"
+              stroke="#4dff88"
+              stroke-width="4"
+            />
+
+            <rect
+              x="88"
+              y="0"
+              width="38"
+              height="38"
+              rx="7"
+              fill="#181825"
+              stroke="#4dff88"
+              stroke-width="4"
+            />
+
+            <text
+              x="19"
+              y="25"
+              fill="#ffffff"
+              font-size="15"
+              font-family="system-ui"
+              font-weight="900"
+              text-anchor="middle"
+            >
+              A
+            </text>
+
+            <text
+              x="63"
+              y="25"
+              fill="#ffffff"
+              font-size="15"
+              font-family="system-ui"
+              font-weight="900"
+              text-anchor="middle"
+            >
+              S
+            </text>
+
+            <text
+              x="107"
+              y="25"
+              fill="#ffffff"
+              font-size="15"
+              font-family="system-ui"
+              font-weight="900"
+              text-anchor="middle"
+            >
+              D
+            </text>
+
+          </g>
+
+
+          <rect
+            x="54"
+            y="274"
+            width="320"
+            height="6"
+            fill="#c45bff"
+            opacity="0.7"
+          />
+
+        </svg>
+
+      </div>
+
+    </section>
+
+
+    <section class="quick-start">
+
+      <h2>
+        Starting any game
+      </h2>
+
+      <p>
+        Pixel Hub uses one shared game window. You choose the game from the Games page, then that game takes control of the Canvas and its keyboard controls.
+      </p>
+
+      <div class="steps-grid">
+
+        <div class="step-card">
+          <strong>
+            1. Choose
+          </strong>
+          Open the Games page and find the game you want.
+        </div>
+
+        <div class="step-card">
+          <strong>
+            2. Press Play
+          </strong>
+          The game window opens for that game and shows the countdown.
+        </div>
+
+        <div class="step-card">
+          <strong>
+            3. Control
+          </strong>
+          Use the keyboard, or pointer controls where supported.
+        </div>
+
+        <div class="step-card">
+          <strong>
+            4. Restart
+          </strong>
+          Use Restart Game below the Canvas when you want another attempt.
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section
+      class="game-guide"
+      id="flappy"
+    >
+
+      <div class="game-guide-grid">
+
+        <div class="game-guide-copy">
+
+          <div class="game-label">
+            🐦 Flappy Bird-style
+          </div>
+
+          <h2>
+            Keep the bird flying.
+          </h2>
+
+          <p>
+            Each flap pushes the bird upward. Gravity pulls it back down, so the challenge is choosing the right time to flap while moving through the gaps.
+          </p>
+
+          <div class="control-row">
+            <span class="key">Space</span>
+            <span class="key">↑</span>
+            <span class="key">W</span>
+            <span class="key">Click / Tap</span>
+          </div>
+
+          <ul class="guide-list">
+            <li>
+              Pass safely between the obstacles.
+            </li>
+
+            <li>
+              Do not hit the pipes or the edge of the play area.
+            </li>
+
+            <li>
+              Use short, controlled flaps instead of pressing constantly.
+            </li>
+          </ul>
+
+          <div class="tip-box">
+            <strong>Tip:</strong>
+            Watch the next opening, not just the bird. Small corrections are usually easier to control.
+          </div>
+
+        </div>
+
+
+        <div class="game-guide-art">
+
+          <svg
+            class="how-svg motion-bob"
+            viewBox="0 0 360 280"
+            role="img"
+            aria-label="Pixel art bird flying between pipes"
+          >
+
+            <rect
+              x="22"
+              y="22"
+              width="316"
+              height="236"
+              rx="30"
+              fill="#69f7ff"
+              opacity="0.055"
+            />
+
+            <rect
+              x="50"
+              y="35"
+              width="58"
+              height="82"
+              fill="#4dff88"
+            />
+
+            <rect
+              x="50"
+              y="180"
+              width="58"
+              height="64"
+              fill="#4dff88"
+            />
+
+            <rect
+              x="248"
+              y="35"
+              width="58"
+              height="120"
+              fill="#4dff88"
+            />
+
+            <rect
+              x="248"
+              y="215"
+              width="58"
+              height="29"
+              fill="#4dff88"
+            />
+
+
+            <g transform="translate(155 120)">
+
+              <rect
+                x="0"
+                y="12"
+                width="46"
+                height="34"
+                fill="#ffd75e"
+              />
+
+              <rect
+                x="30"
+                y="4"
+                width="24"
+                height="24"
+                fill="#ffd75e"
+              />
+
+              <rect
+                x="38"
+                y="9"
+                width="6"
+                height="6"
+                fill="#111118"
+              />
+
+              <rect
+                x="54"
+                y="17"
+                width="20"
+                height="8"
+                fill="#ff8d5c"
+              />
+
+              <rect
+                x="-14"
+                y="23"
+                width="18"
+                height="12"
+                fill="#c45bff"
+              />
+
+            </g>
+
+
+            <g
+              fill="#ffd75e"
+              class="motion-pulse"
+            >
+              <rect
+                x="135"
+                y="64"
+                width="6"
+                height="20"
+              />
+
+              <rect
+                x="128"
+                y="71"
+                width="20"
+                height="6"
+              />
+            </g>
+
+          </svg>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section
+      class="game-guide reverse"
+      id="snake"
+    >
+
+      <div class="game-guide-grid">
+
+        <div class="game-guide-copy">
+
+          <div class="game-label">
+            🐍 Snake
+          </div>
+
+          <h2>
+            Eat apples. Keep growing.
+          </h2>
+
+          <p>
+            Guide the snake around the grid. Every apple makes the snake longer, which means the available space becomes harder to manage.
+          </p>
+
+          <div class="control-row">
+            <span class="key">↑ ↓ ← →</span>
+            <span class="key">W A S D</span>
+          </div>
+
+          <ul class="guide-list">
+            <li>
+              Eat apples to increase your score and length.
+            </li>
+
+            <li>
+              Avoid the outside walls.
+            </li>
+
+            <li>
+              Do not run the snake into its own body.
+            </li>
+          </ul>
+
+          <div class="tip-box">
+            <strong>Tip:</strong>
+            Leave yourself open paths. Tight loops can trap a long snake quickly.
+          </div>
+
+        </div>
+
+
+        <div class="game-guide-art">
+
+          <svg
+            class="how-svg motion-float"
+            viewBox="0 0 360 280"
+            role="img"
+            aria-label="Pixel art snake and apple"
+          >
+
+            <rect
+              x="22"
+              y="22"
+              width="316"
+              height="236"
+              rx="30"
+              fill="#4dff88"
+              opacity="0.05"
+            />
+
+            <g fill="#4dff88">
+              <rect x="74" y="82" width="34" height="34"/>
+              <rect x="108" y="82" width="34" height="34"/>
+              <rect x="142" y="82" width="34" height="34"/>
+              <rect x="142" y="116" width="34" height="34"/>
+              <rect x="142" y="150" width="34" height="34"/>
+              <rect x="176" y="150" width="34" height="34"/>
+              <rect x="210" y="150" width="34" height="34"/>
+            </g>
+
+            <rect
+              x="230"
+              y="160"
+              width="5"
+              height="5"
+              fill="#111118"
+            />
+
+            <rect
+              x="266"
+              y="96"
+              width="30"
+              height="30"
+              fill="#ff667d"
+            />
+
+            <rect
+              x="280"
+              y="84"
+              width="7"
+              height="14"
+              fill="#4dff88"
+            />
+
+            <g
+              fill="#69f7ff"
+              class="motion-pulse"
+            >
+              <rect x="54" y="203" width="7" height="21"/>
+              <rect x="47" y="210" width="21" height="7"/>
+            </g>
+
+          </svg>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section
+      class="game-guide"
+      id="dino"
+    >
+
+      <div class="game-guide-grid">
+
+        <div class="game-guide-copy">
+
+          <div class="game-label">
+            🦖 Dino
+          </div>
+
+          <h2>
+            Jump and keep running.
+          </h2>
+
+          <p>
+            The Dino moves forward automatically. Your job is to time each jump so it clears cactus groups and flying pterosaurs as the game gradually gets faster.
+          </p>
+
+          <div class="control-row">
+            <span class="key">Space</span>
+            <span class="key">↑</span>
+            <span class="key">W</span>
+          </div>
+
+          <ul class="guide-list">
+            <li>
+              Jump over ground obstacles.
+            </li>
+
+            <li>
+              Watch for flying obstacles as the run continues.
+            </li>
+
+            <li>
+              The speed increases as you progress.
+            </li>
+          </ul>
+
+          <div class="tip-box">
+            <strong>Tip:</strong>
+            Do not jump too early. Keep enough room to land before the next obstacle arrives.
+          </div>
+
+        </div>
+
+
+        <div class="game-guide-art">
+
+          <svg
+            class="how-svg motion-bob"
+            viewBox="0 0 360 280"
+            role="img"
+            aria-label="Pixel art dinosaur jumping over cactus"
+          >
+
+            <rect
+              x="22"
+              y="22"
+              width="316"
+              height="236"
+              rx="30"
+              fill="#ffd75e"
+              opacity="0.05"
+            />
+
+            <rect
+              x="42"
+              y="216"
+              width="276"
+              height="7"
+              fill="#69f7ff"
+              opacity="0.8"
+            />
+
+            <g
+              transform="translate(88 126)"
+              fill="#4dff88"
+            >
+              <rect x="0" y="26" width="58" height="42"/>
+              <rect x="43" y="0" width="48" height="40"/>
+              <rect x="76" y="34" width="15" height="18"/>
+              <rect x="9" y="67" width="13" height="35"/>
+              <rect x="43" y="67" width="13" height="35"/>
+              <rect x="-28" y="42" width="34" height="13"/>
+            </g>
+
+            <g fill="#ff667d">
+              <rect x="246" y="166" width="20" height="50"/>
+              <rect x="231" y="180" width="15" height="18"/>
+              <rect x="266" y="173" width="15" height="22"/>
+            </g>
+
+            <path
+              d="M156 125 Q190 78 224 126"
+              fill="none"
+              stroke="#c45bff"
+              stroke-width="6"
+              stroke-dasharray="8 10"
+            />
+
+          </svg>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section
+      class="game-guide reverse"
+      id="pong"
+    >
+
+      <div class="game-guide-grid">
+
+        <div class="game-guide-copy">
+
+          <div class="game-label">
+            🏓 Pong
+          </div>
+
+          <h2>
+            Beat the CPU to 7.
+          </h2>
+
+          <p>
+            Move your paddle up and down to return the ball. The computer controls the opposite paddle, and the first side to reach 7 points wins.
+          </p>
+
+          <div class="control-row">
+            <span class="key">W / S</span>
+            <span class="key">↑ / ↓</span>
+            <span class="key">1 Easy</span>
+            <span class="key">2 Medium</span>
+            <span class="key">3 Hard</span>
+            <span class="key">4 Impossible</span>
+          </div>
+
+          <ul class="guide-list">
+            <li>
+              Keep your paddle lined up with the incoming ball.
+            </li>
+
+            <li>
+              Use number keys 1–4 to change CPU difficulty.
+            </li>
+
+            <li>
+              Score when the ball passes the CPU paddle.
+            </li>
+          </ul>
+
+          <div class="tip-box">
+            <strong>Tip:</strong>
+            Hitting the ball away from the center of your paddle can help create harder return angles.
+          </div>
+
+        </div>
+
+
+        <div class="game-guide-art">
+
+          <svg
+            class="how-svg motion-float"
+            viewBox="0 0 360 280"
+            role="img"
+            aria-label="Pixel art Pong court"
+          >
+
+            <rect
+              x="22"
+              y="22"
+              width="316"
+              height="236"
+              rx="30"
+              fill="#c45bff"
+              opacity="0.05"
+            />
+
+            <rect
+              x="44"
+              y="54"
+              width="272"
+              height="174"
+              fill="#080812"
+              stroke="#69f7ff"
+              stroke-width="5"
+            />
+
+            <g
+              fill="#ffffff"
+              opacity="0.35"
+            >
+              <rect x="177" y="62" width="6" height="18"/>
+              <rect x="177" y="90" width="6" height="18"/>
+              <rect x="177" y="118" width="6" height="18"/>
+              <rect x="177" y="146" width="6" height="18"/>
+              <rect x="177" y="174" width="6" height="18"/>
+              <rect x="177" y="202" width="6" height="18"/>
+            </g>
+
+            <rect
+              x="62"
+              y="108"
+              width="12"
+              height="62"
+              fill="#4dff88"
+            />
+
+            <rect
+              x="286"
+              y="92"
+              width="12"
+              height="62"
+              fill="#c45bff"
+            />
+
+            <circle
+              cx="208"
+              cy="136"
+              r="10"
+              fill="#ffffff"
+            />
+
+          </svg>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section
+      class="game-guide"
+      id="game-2048"
+    >
+
+      <div class="game-guide-grid">
+
+        <div class="game-guide-copy">
+
+          <div class="game-label">
+            🔢 2048
+          </div>
+
+          <h2>
+            Combine matching tiles.
+          </h2>
+
+          <p>
+            Every move slides the whole board in one direction. Tiles with the same value combine when they meet, creating a larger tile.
+          </p>
+
+          <div class="control-row">
+            <span class="key">↑ ↓ ← →</span>
+            <span class="key">W A S D</span>
+          </div>
+
+          <ul class="guide-list">
+            <li>
+              Combine equal-number tiles such as 2 + 2 or 16 + 16.
+            </li>
+
+            <li>
+              Try to keep enough empty spaces for future moves.
+            </li>
+
+            <li>
+              The main goal is to create the 2048 tile.
+            </li>
+          </ul>
+
+          <div class="tip-box">
+            <strong>Tip:</strong>
+            Keeping your largest tiles near one corner can make the board easier to organize.
+          </div>
+
+        </div>
+
+
+        <div class="game-guide-art">
+
+          <svg
+            class="how-svg motion-bob"
+            viewBox="0 0 360 280"
+            role="img"
+            aria-label="Pixel art 2048 number tiles"
+          >
+
+            <rect
+              x="22"
+              y="22"
+              width="316"
+              height="236"
+              rx="30"
+              fill="#69f7ff"
+              opacity="0.05"
+            />
+
+            <g
+              font-family="system-ui"
+              font-weight="900"
+              text-anchor="middle"
+            >
+
+              <rect
+                x="78"
+                y="58"
+                width="82"
+                height="72"
+                rx="10"
+                fill="#ffd75e"
+              />
+
+              <text
+                x="119"
+                y="104"
+                fill="#111118"
+                font-size="28"
+              >
+                2
+              </text>
+
+
+              <rect
+                x="170"
+                y="58"
+                width="82"
+                height="72"
+                rx="10"
+                fill="#ff8d5c"
+              />
+
+              <text
+                x="211"
+                y="104"
+                fill="#111118"
+                font-size="28"
+              >
+                4
+              </text>
+
+
+              <rect
+                x="78"
+                y="140"
+                width="82"
+                height="72"
+                rx="10"
+                fill="#c45bff"
+              />
+
+              <text
+                x="119"
+                y="185"
+                fill="#ffffff"
+                font-size="25"
+              >
+                16
+              </text>
+
+
+              <rect
+                x="170"
+                y="140"
+                width="82"
+                height="72"
+                rx="10"
+                fill="#4dff88"
+              />
+
+              <text
+                x="211"
+                y="185"
+                fill="#111118"
+                font-size="23"
+              >
+                128
+              </text>
+
+            </g>
+
+
+            <path
+              d="M270 135 H318 M303 120 L318 135 303 150"
+              stroke="#69f7ff"
+              stroke-width="7"
+              fill="none"
+            />
+
+          </svg>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section
+      class="game-guide reverse"
+      id="breakout"
+    >
+
+      <div class="game-guide-grid">
+
+        <div class="game-guide-copy">
+
+          <div class="game-label">
+            🧱 Breakout
+          </div>
+
+          <h2>
+            Clear the bricks and survive the levels.
+          </h2>
+
+          <p>
+            Move the paddle underneath the ball so it keeps bouncing into the bricks. New levels use different brick formations and the ball becomes faster as you progress.
+          </p>
+
+          <div class="control-row">
+            <span class="key">A / D</span>
+            <span class="key">← / →</span>
+          </div>
+
+          <ul class="guide-list">
+            <li>
+              You begin with 3 lives.
+            </li>
+
+            <li>
+              Break every brick to reach the next level.
+            </li>
+
+            <li>
+              Catch falling power-ups for +100 points, an extra life, a wider paddle, a slower ball, or multiball.
+            </li>
+
+            <li>
+              The brick pattern changes and the ball speed increases on later levels.
+            </li>
+          </ul>
+
+          <div class="tip-box">
+            <strong>Tip:</strong>
+            Keep the paddle near the ball's projected landing point. Chasing the ball too late is much harder at higher speeds.
+          </div>
+
+        </div>
+
+
+        <div class="game-guide-art">
+
+          <svg
+            class="how-svg motion-float"
+            viewBox="0 0 360 280"
+            role="img"
+            aria-label="Pixel art Breakout bricks, paddle, and ball"
+          >
+
+            <rect
+              x="22"
+              y="22"
+              width="316"
+              height="236"
+              rx="30"
+              fill="#4dff88"
+              opacity="0.04"
+            />
+
+
+            <g>
+              <rect x="58" y="58" width="44" height="22" fill="#69f7ff"/>
+              <rect x="108" y="58" width="44" height="22" fill="#c45bff"/>
+              <rect x="158" y="58" width="44" height="22" fill="#4dff88"/>
+              <rect x="208" y="58" width="44" height="22" fill="#ffd75e"/>
+
+              <rect x="83" y="87" width="44" height="22" fill="#ff8d5c"/>
+              <rect x="133" y="87" width="44" height="22" fill="#69f7ff"/>
+              <rect x="183" y="87" width="44" height="22" fill="#c45bff"/>
+              <rect x="233" y="87" width="44" height="22" fill="#4dff88"/>
+
+              <rect x="108" y="116" width="44" height="22" fill="#ffd75e"/>
+              <rect x="158" y="116" width="44" height="22" fill="#ff667d"/>
+              <rect x="208" y="116" width="44" height="22" fill="#69f7ff"/>
+            </g>
+
+
+            <circle
+              cx="198"
+              cy="171"
+              r="10"
+              fill="#ffffff"
+            />
+
+            <path
+              d="M198 184 L150 218"
+              stroke="#ffffff"
+              stroke-width="4"
+              stroke-dasharray="6 8"
+              opacity="0.5"
+            />
+
+            <rect
+              x="120"
+              y="222"
+              width="120"
+              height="15"
+              fill="#69f7ff"
+            />
+
+            <g
+              fill="#ffd75e"
+              class="motion-pulse"
+            >
+              <rect x="284" y="185" width="7" height="21"/>
+              <rect x="277" y="192" width="21" height="7"/>
+            </g>
+
+          </svg>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="how-final">
+
+      <h2>
+        Ready to play?
+      </h2>
+
+      <p>
+        Pick a game, use the controls from this guide, and see how far you can get. You can return here whenever you need a reminder.
+      </p>
+
+      <a
+        href="games.html"
+        class="btn-primary"
+      >
+        🎮 Go to Games
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <footer class="site-footer">
+    <p>
+      © 2026 Pixel Hub
+    </p>
+  </footer>
+
+
+  <script>
+    // ========================================
+    // Pixel Hub - Dark / Light Mode
+    // ========================================
+
+    const themeToggle =
+      document.getElementById(
+        "theme-toggle"
+      );
+
+
+    function applySavedTheme() {
+      const savedTheme =
+        localStorage.getItem(
+          "pixelArcadeTheme"
+        );
+
+
+      if (
+        savedTheme === "light"
+      ) {
+        document.body.classList.remove(
+          "theme-dark"
+        );
+
+        document.body.classList.add(
+          "theme-light"
+        );
+
+      } else {
+
+        document.body.classList.remove(
+          "theme-light"
+        );
+
+        document.body.classList.add(
+          "theme-dark"
+        );
+      }
+    }
+
+
+    applySavedTheme();
+
+
+    if (themeToggle) {
+      themeToggle.addEventListener(
+        "click",
+        () => {
+
+          const isLight =
+            document.body.classList.contains(
+              "theme-light"
+            );
+
+
+          document.body.classList.toggle(
+            "theme-light",
+            !isLight
+          );
+
+
+          document.body.classList.toggle(
+            "theme-dark",
+            isLight
+          );
+
+
+          localStorage.setItem(
+            "pixelArcadeTheme",
+            isLight
+              ? "dark"
+              : "light"
+          );
+        }
+      );
+    }
+  </script>
+
+</body>
+</html>
