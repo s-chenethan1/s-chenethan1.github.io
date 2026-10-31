@@ -283,6 +283,16 @@
 
       </article>
 
+
+
+
+      <article class="card game-card" data-category="classic" id="minesweeper">
+        <h3>💣 Minesweeper</h3>
+        <p>Use number clues to reveal safe tiles and flag hidden mines.</p>
+        <p class="score">Best safe tiles: <span data-game="minesweeper" class="high-score">0</span></p>
+        <button class="btn-primary play-btn" data-game="minesweeper">Play</button>
+      </article>
+
     </section>
 
 
@@ -336,7 +346,7 @@
         >
           <p class="game-log-entry">
             Choose Flappy Bird-style, Snake, Dino,
-            Pong, 2048, or Breakout to begin.
+            Pong, 2048, Breakout, or Minesweeper to begin.
           </p>
         </div>
 
@@ -467,7 +477,8 @@
       dino: "dino",
       pong: "pong",
       "2048": "game-2048",
-      breakout: "breakout"
+      breakout: "breakout",
+      minesweeper: "minesweeper"
     };
 
     const gameHelpLabels = {
@@ -476,7 +487,8 @@
       dino: "Dino",
       pong: "Pong",
       "2048": "2048",
-      breakout: "Breakout"
+      breakout: "Breakout",
+      minesweeper: "Minesweeper"
     };
 
     const gameLog =
@@ -1018,7 +1030,7 @@
       "17px system-ui";
 
     ctx.fillText(
-      "Flappy • Snake • Dino • Pong • 2048 • Breakout",
+      "Flappy • Snake • Dino • Pong • 2048 • Breakout • Minesweeper",
       canvas.width / 2,
       canvas.height / 2 + 42
     );
@@ -1295,6 +1307,13 @@
         "breakout"
       );
 
+
+
+      await loadGameScript(
+        "Minesweeper",
+        ["Minesweeper.js", "games/Minesweeper.js", "js/Minesweeper.js"],
+        "minesweeper"
+      );
 
       console.log(
         "Registered games:",
